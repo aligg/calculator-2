@@ -36,7 +36,7 @@ while calculator_on:
         num3 = int(tokenized_list[3])
 
     symbol = tokenized_list[0]
-    if symbol == 'q' or symbol == 'Q':
+    if symbol.lower() == 'q':
         calculator_on = False
         print "You're now exiting the calculator. Bye Felicia"
 
@@ -63,3 +63,6 @@ while calculator_on:
         print square(num1)
     elif symbol == "cube":
         print cube(num1)
+    else:
+        print "Bad input, try again please."
+        continue
