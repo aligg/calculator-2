@@ -10,8 +10,12 @@ from arithmetic import *
 def my_reduce(function, number_list):
     """ Reduces the items in a list allowing calc to process multiple numbers"""
     av = number_list[0]
-    for number in number_list[1:]:
-        av = function(av, number)
+    if len(number_list) == 1:
+        for number in number_list:
+            av = function(av)
+    else:
+        for number in number_list[1:]:
+            av = function(av, number)
     return av
 
 calculator_on = True
