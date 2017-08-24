@@ -4,26 +4,10 @@ Using the arithmetic.py file from Calculator Part 1, create the
 calculator program yourself in this file.
 """
 
-# No setup
-# repeat forever:
-#     read input
-#     tokenize input
-#     if the first token is "q":
-#         quit
-#     else:
-#         decide which math function to call based on first token
-
-# do_setup()
-# while exit_condition_not_reached:
-#     input = consume_input()
-#     output = evaluate_input(input)
-#     print output
-
-
-
 from arithmetic import *
 
 def reduce(function, iterable, initializer=None):
+    """doc string here"""
     it = iter(iterable)
     if initializer is None:
         try:
@@ -35,7 +19,6 @@ def reduce(function, iterable, initializer=None):
         accum_value = function(accum_value, x)
     return accum_value
 
-# Your code goes here
 calculator_on = True
 
 while calculator_on:
@@ -75,10 +58,10 @@ while calculator_on:
         print reduce(power, int_list)
     elif symbol == "mod":
         print reduce(mod, int_list)
-    elif symbol == "cubes+":
-        print reduce(add_cubes, int_list)
-    elif symbol == "x+":
-        print reduce(add_mult, int_list)
+    # elif symbol == "cubes+":
+    #     print reduce(add_cubes, int_list)
+    # elif symbol == "x+":
+    #     print reduce(add_mult, int_list)
     elif symbol == "square":
         print reduce(square, int_list)
     elif symbol == "cube":
