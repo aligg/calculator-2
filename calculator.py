@@ -6,6 +6,15 @@ calculator program yourself in this file.
 
 from arithmetic import *
 
+# listy = [1,2,3,4]
+# def my_reduce(function, listy):
+#     av = 0
+#     for numbers in listy:
+#         av = function(numbers,av)
+#     return av
+# print my_reduce(subtract, listy)
+"""above works only with addition for now"""
+
 def reduce(function, iterable, initializer=None):
     """doc string here"""
     it = iter(iterable)
