@@ -26,7 +26,7 @@ while calculator_on:
     augmented_list = tokenized_list[1:]
     int_list=[]
     for i in augmented_list:
-        i = int(i)
+        i = float(i)
         int_list.append(i)
 
     if symbol.lower() == 'q':
@@ -34,28 +34,28 @@ while calculator_on:
         print "You're now exiting the calculator. Bye Felicia"
 
     elif symbol == '+':
-        print my_reduce(add, int_list)
+        print '{:.2f}'.format(my_reduce(add, int_list))
     elif symbol == '-':
-        print my_reduce(subtract, int_list)
+        print '{:.2f}'.format(my_reduce(subtract, int_list))
     elif symbol == '*':
-        print my_reduce(multiply, int_list)
+        print '{:.2f}'.format(my_reduce(multiply, int_list))
     elif symbol == '/':
         # if num2 == 0:
         #     print "You can't divide by zero"
         #     continue
-        print my_reduce(divide, int_list)
+        print '{:.2f}'.format(my_reduce(divide, int_list))
     elif symbol == "pow":
-        print my_reduce(power, int_list)
+        print '{:.2f}'.format(my_reduce(power, int_list))
     elif symbol == "mod":
-        print my_reduce(mod, int_list)
+        print '{:.2f}'.format(my_reduce(mod, int_list))
     # elif symbol == "cubes+":
     #     print reduce(add_cubes, int_list)
     # elif symbol == "x+":
     #     print reduce(add_mult, int_list)
     elif symbol == "square":
-        print my_reduce(square, int_list)
+        print '{:.2f}'.format(my_reduce(square, int_list))
     elif symbol == "cube":
-        print my_reduce(cube, int_list)
+        print '{:.2f}'.format(my_reduce(cube, int_list))
     else:
         print "Bad input, try again please."
         continue
