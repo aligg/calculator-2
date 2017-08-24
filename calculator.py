@@ -6,27 +6,13 @@ calculator program yourself in this file.
 
 from arithmetic import *
 
-# listy = [1,2,3,4]
-# def my_reduce(function, listy):
-#     av = 0
-#     for numbers in listy:
-#         av = function(numbers,av)
-#     return av
-# print my_reduce(subtract, listy)
-"""above works only with addition for now"""
 
-def reduce(function, iterable, initializer=None):
-    """doc string here"""
-    it = iter(iterable)
-    if initializer is None:
-        try:
-            initializer = next(it)
-        except StopIteration:
-            raise TypeError('reduce() of empty sequence with no initial value')
-    accum_value = initializer
-    for x in it:
-        accum_value = function(accum_value, x)
-    return accum_value
+def my_reduce(function, number_list):
+    """ Reduces the items in a list allowing calc to process multiple numbers"""
+    av = number_list[0]
+    for number in number_list[1:]:
+        av = function(av, number)
+    return av
 
 calculator_on = True
 
@@ -39,42 +25,33 @@ while calculator_on:
         i = int(i)
         int_list.append(i)
 
-    # if len(tokenized_list) > 1:
-    #     num1 = int(tokenized_list[1])
-    # if len(tokenized_list) > 2:
-    #     num2 = int(tokenized_list[2])
-    # if len(tokenized_list) > 3:
-    #     num3 = int(tokenized_list[3])
-    # if len(tokenized_list) > 4:
-    #     print "Only returning results for first three inputs"
-
     if symbol.lower() == 'q':
         calculator_on = False
         print "You're now exiting the calculator. Bye Felicia"
 
     elif symbol == '+':
-        print reduce(add, int_list)
+        print my_reduce(add, int_list)
     elif symbol == '-':
-        print reduce(subtract, int_list)
+        print my_reduce(subtract, int_list)
     elif symbol == '*':
-        print reduce(multiply, int_list)
+        print my_reduce(multiply, int_list)
     elif symbol == '/':
         # if num2 == 0:
         #     print "You can't divide by zero"
         #     continue
-        print reduce(divide, int_list)
+        print my_reduce(divide, int_list)
     elif symbol == "pow":
-        print reduce(power, int_list)
+        print my_reduce(power, int_list)
     elif symbol == "mod":
-        print reduce(mod, int_list)
+        print my_reduce(mod, int_list)
     # elif symbol == "cubes+":
     #     print reduce(add_cubes, int_list)
     # elif symbol == "x+":
     #     print reduce(add_mult, int_list)
     elif symbol == "square":
-        print reduce(square, int_list)
+        print my_reduce(square, int_list)
     elif symbol == "cube":
-        print reduce(cube, int_list)
+        print my_reduce(cube, int_list)
     else:
         print "Bad input, try again please."
         continue
